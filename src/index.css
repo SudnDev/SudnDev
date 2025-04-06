@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@tailwind utilities;
+
+:root {
+    --purple-dark: #1a1025;
+    --purple-light: #2d1b3d;
+    --purple-accent: #6b2fb3;
+    --purple-glow: rgba(107, 47, 179, 0.15);
+}
+
+body {
+    background: var(--purple-dark);
+    color: #e0e0e0;
+}
+
+.cursor-glow {
+    pointer-events: none;
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, var(--purple-glow) 0%, rgba(107, 47, 179, 0) 70%);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    mix-blend-mode: screen;
+}
+
+.block-shadow {
+    box-shadow: 0 0 30px rgba(107, 47, 179, 0.2);
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.block-shadow:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 0 40px rgba(107, 47, 179, 0.4);
+}
+
+.draggable {
+    cursor: move;
+    user-select: none;
+}
+
+.glass-effect {
+    background: rgba(45, 27, 61, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(107, 47, 179, 0.1);
+}
+
+.block-label {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    background: var(--purple-accent);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: white;
+    z-index: 2;
+}
+
+.moving-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}

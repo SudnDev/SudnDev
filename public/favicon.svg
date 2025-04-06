@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X5 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="2048px" height="2048px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 2048 2048"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil6 {fill:none}
+    .fil2 {fill:#19252B}
+    .fil1 {fill:#263238}
+    .fil5 {fill:#8BC34A}
+    .fil0 {fill:#B0BEC5}
+    .fil4 {fill:#D50000}
+    .fil3 {fill:#FF6F00}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_359273368">
+   <rect class="fil0" x="256" y="256" width="1536" height="1536" rx="256" ry="256"/>
+   <path class="fil1" d="M512 256l1024 0c141,0 256,115 256,256l0 128 -1536 0 0 -128c0,-141 115,-256 256,-256z"/>
+   <path class="fil2" d="M1372 1158l17 0 0 1 2 0 -1 33 1 33 -2 0 0 1 -17 0c-19,1 -41,4 -57,15 -11,8 -18,18 -23,30 -6,15 3,68 5,85 11,77 29,187 -53,235 -14,8 -30,14 -47,18 -19,4 -39,6 -58,7l-18 1 -2 -67 18 -1c15,0 30,-2 44,-5 9,-2 18,-5 26,-9 4,-2 7,-5 11,-9 30,-33 16,-118 10,-160 -5,-34 -14,-87 -1,-119 9,-21 22,-39 39,-53 -18,-14 -31,-32 -39,-53 -14,-32 -4,-85 1,-119 2,-13 4,-26 5,-39 4,-35 12,-107 -26,-129 -8,-5 -17,-8 -26,-9 -14,-3 -30,-4 -44,-5l-18 -1 2 -67 18 1c19,1 39,2 58,7 16,4 32,9 47,18 82,48 64,158 53,235 -2,17 -11,70 -5,85 5,12 12,22 23,30 16,11 37,15 57,15zm-590 34c18,14 31,32 39,53 14,32 4,85 -1,119 -2,13 -4,26 -5,39 -4,35 -12,107 26,129 8,5 17,8 26,9 14,3 30,4 44,5l18 1 -2 67 -18 -1c-19,-1 -39,-2 -58,-7 -16,-4 -32,-9 -47,-18 -82,-48 -64,-158 -53,-235 2,-17 11,-70 5,-85 -5,-12 -12,-22 -23,-30 -16,-11 -37,-15 -57,-15l-17 0 0 -1 -2 0 1 -33 -1 -33 2 0 0 -1 17 0c19,-1 41,-4 57,-15 11,-8 18,-18 23,-30 6,-15 -3,-68 -5,-85 -11,-77 -29,-187 53,-235 14,-8 30,-14 47,-18 19,-4 39,-6 58,-7l18 -1 2 67 -18 1c-15,0 -30,2 -44,5 -9,2 -18,5 -26,9 -4,2 -7,5 -11,9 -30,33 -16,118 -10,160 5,34 14,87 1,119 -9,21 -22,39 -39,53z"/>
+   <rect class="fil3" x="1434" y="416" width="94" height="94" rx="20" ry="20"/>
+   <rect class="fil4" x="1556" y="416" width="94" height="94" rx="20" ry="20"/>
+   <rect class="fil5" x="1312" y="416" width="94" height="94" rx="20" ry="20"/>
+  </g>
+  <rect class="fil6" width="2048" height="2048"/>
+ </g>
+</svg>
