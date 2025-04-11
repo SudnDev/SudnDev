@@ -1,6 +1,10 @@
 {
   "aboutTitle": "Привет! Я",
-  "aboutDesc": "Привет! Меня зовут Nickey, и я 17-летний fullstack разработчик. Я специализируюсь на создании backend на Java (Spring) и frontend на TypeScript (React), а также разрабатываю ботов на Java (JDA) и плагины на Bukkit API.<br><br>Я предлагаю услуги по созданию:<br>• Backend для веб-приложений на Spring<br>• Frontend на React с использованием TypeScript<br>• Ботов для Discord на Java (JDA)<br>• Плагинов для Minecraft (Bukkit API)<br><br>Если вам нужно качественное решение — не стесняйтесь обращаться ко мне или в мою студию!",
+  "aboutDesc": "Я fullstack разработчик. Я специализируюсь на создании backend на Java (Spring) и frontend на TypeScript (React), а также разрабатываю ботов на Java (JDA) и плагины на Bukkit API.<br><br>Я предлагаю услуги по созданию:<br>• Backend для веб-приложений на Spring<br>• Frontend на React с использованием TypeScript<br>• Ботов для Discord на Java (JDA)<br>• Плагинов для Minecraft (Bukkit API)<br><br>Если вам нужно качественное решение — не стесняйтесь обращаться ко мне или в мою студию!",
   "contactMe": "Связаться Со Мной",
-  "studio": "Студия"
+  "studio": "Студия",
+  "weather-error": "Данные о погоде еще не загружены.",
+  "programming-languages": "Языки программирования",
+  "projects": "Просмотреть проекты",
+  "projects-text": "Это часть моих проектов — те, которыми захотелось поделиться. Личные, заказные, в разной стадии готовности."
 }

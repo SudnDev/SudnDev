@@ -7,7 +7,8 @@ import {
 } from 'lucide-react';
 import GitHubCalendar from 'react-github-calendar';
 import i18n from "../locales/i18n.ts";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
+import { WeatherResponse, getCurrentWeather } from "../api/WeatherApi.ts";
 
 interface Position {
     x: number;
@@ -80,6 +81,7 @@ const MainPage = () => {
     const [time, setTime] = React.useState(new Date());
     const [mousePos, setMousePos] = useState<Position>({ x: 0, y: 0 });
     const [language, setLanguage] = useState(i18n.language);
+    const [WeatherResponse, setWeatherResponse] = useState<WeatherResponse>();
 
     const changeLanguage = (lng: string) => {
         i18n.changeLanguage(lng);
@@ -106,6 +108,15 @@ const MainPage = () => {
         }
     }, []);
 
+    useEffect(() => {
+        const fetchWeather = async () => {
+            const weatherData = await getCurrentWeather('Karaganda', language);
+            setWeatherResponse(weatherData); // Обновляем состояние после получения данных
+        };
+
+        fetchWeather();
+    }, [language]);
+
     const { t } = useTranslation("mainPage");
 
     const currentYear = new Date().getFullYear();
@@ -122,7 +133,7 @@ const MainPage = () => {
 
             <div className="max-w-6xl mx-auto space-y-4 relative">
                 {/* Top Bar with Time and Weather */}
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <DraggableBlock
                         className="flex items-center gap-3 p-3 rounded"
                         label="time.java"
@@ -151,8 +162,19 @@ const MainPage = () => {
                         label="weather.json"
                     >
                         <FileJson className="w-4 h-4 text-gray-500" />
-                        <span className="text-sm">Пасмурно</span>
-                        <span className="text-sm">1.9 °C</span>
+                        {WeatherResponse ? (
+                            <>
+                                <span className="text-sm font-mono">{WeatherResponse.condition.text},</span>
+                                <span className="text-sm -ml-1.5 font-mono">{WeatherResponse.temp}</span>
+                                {language === 'ru' ? (
+                                    <p className="text-sm -ml-2.5 font-mono">°C</p>
+                                ) : (
+                                    <p className="text-sm -ml-2.5 font-mono">℉</p>
+                                )}
+                            </>
+                        ) : (
+                            <p>{t("weather-error")}</p>
+                        )}
                     </DraggableBlock>
                 </div>
 
@@ -161,16 +183,16 @@ const MainPage = () => {
                     className="p-6 rounded"
                     label="about.md"
                 >
-                    <div className="flex items-start gap-6">
+                    <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
                         <img
                             src="./images/hans.jpg"
                             alt="Profile"
                             className="w-16 h-16 rounded-full"
                         />
-                        <div className="space-y-4">
+                        <div className="space-y-4 text-center md:text-left">
                             <div>
                                 <h1 className="text-xl">{t("aboutTitle")} <a href="https://githubgithub.com/SudnDev" className="text-[#6b2fb3]">@SudnDev</a></h1>
-                                <div className="flex gap-2 mt-3">
+                                <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-3">
                                     <span className="bg-[#1E1E1E] px-3 py-1 rounded text-xs flex items-center">
                                       <img src="./icons/java-outline.svg" alt="Redis" className="w-4 h-4 mr-2" />
                                       Java
@@ -202,7 +224,7 @@ const MainPage = () => {
                 </DraggableBlock>
 
                 {/* Action Buttons */}
-                <div className="grid grid-cols-3 gap-4 moving-animation">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 moving-animation">
                     <a href='https://t.me/stoneDragonfly' target="_blank" rel="noopener noreferrer" className="block-shadow glass-effect flex items-center justify-center gap-2 hover:bg-[#2d1b3d] py-2 rounded transition-colors cursor-pointer">
                         <img src="./icons/telegram-outline.svg" alt="Telegram" className="w-5 h-5"/>
                         {t("contactMe")}
@@ -212,7 +234,7 @@ const MainPage = () => {
                         {t("studio")}
                     </a>
                     <button
-                        className="block-shadow glass-effect flex items-center justify-center gap-2 hover:bg-[#2d1b3d] py-2 rounded transition-colors"
+                        className="block-shadow glass-effect flex items-center justify-center gap-2 hover:bg-[#2d1b3d] py-2 rounded transition-colors cursor-pointer"
                         onClick={() => changeLanguage(language === 'en' ? 'ru' : 'en')}
                     >
                         <img src="./icons/language-outline.svg" alt="Telegram" className="w-5 h-5"/>
@@ -221,16 +243,16 @@ const MainPage = () => {
                 </div>
 
                 {/* Skills Section */}
-                <div className="grid grid-cols-3 gap-4">
-                    <div className="col-span-2">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="md:col-span-2">
                         {/* Github Calendar */}
                         <DraggableBlock
                             className="p-4 rounded"
-                            label="github.io"
+                            label="github.ts"
                         >
                             <div className="flex items-center gap-4">
-                                <div className="-ml-1">
-                                    <GitHubCalendar
+                                <div className="-ml-1 overflow-x-auto -mx-2">
+                                <GitHubCalendar
                                         year={currentYear}
                                         username="SudnDev"
                                         colorScheme="dark"
@@ -252,7 +274,7 @@ const MainPage = () => {
                             className="p-4 rounded"
                             label="skills.md"
                         >
-                            <h2 className="text-lg mb-4">Языки программирования</h2>
+                            <h2 className="text-lg mb-4">{t("programming-languages")}</h2>
                             <div className="space-y-3">
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-2">
@@ -271,24 +293,24 @@ const MainPage = () => {
                             </div>
                         </DraggableBlock>
 
-                        <DraggableBlock
-                            className="p-4 rounded"
-                            label="projects.json"
-                        >
-                            <div className="flex items-center justify-between mb-3">
-                                <h2 className="text-lg">Просмотреть все проекты</h2>
-                                <ExternalLink className="w-4 h-4 text-gray-500" />
-                            </div>
-                            <p className="text-sm text-gray-400">
-                                Завершенные, в разработке, замороженные проекты. Здесь все мои проекты, включая личные и сайты на заказ
-                            </p>
-                        </DraggableBlock>
+                        <a href="https://github.com/SudnDev?tab=repositories" target="_blank" rel="noopener noreferrer">
+                            <DraggableBlock
+                                className="p-4 rounded !cursor-pointer"
+                                label="projects.jar"
+                            >
+                                <div className="flex items-center justify-between mb-3">
+                                    <h2 className="text-lg">{t("projects")}</h2>
+                                    <ExternalLink className="w-4 h-4 text-gray-500" />
+                                </div>
+                                <p className="text-sm text-gray-400">{t("projects-text")}</p>
+                            </DraggableBlock>
+                        </a>
                     </div>
                 </div>
 
                 {/* Footer */}
                 <footer className="text-center text-gray-600 text-xs py-4">
-                    Copyright © 2023 SudnDev. Все права защищены. Скачивание, копирование и редактирование не допускается
+                    Copyright © 2025 SudnDev. Все права защищены. Скачивание, копирование и редактирование не допускается
                 </footer>
             </div>
         </div>
